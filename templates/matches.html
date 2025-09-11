@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
+{% block nav_enabled1 %}{% endblock %}
+{% block nav_enabled2 %}{% endblock %}
+{% block nav_enabled3 %}active{% endblock %}
+{% block nav_enabled4 %}{% endblock %}
+
+{% block content %}
+<h5>Welcome {{username}}, you have played {{matchcount}} matches</h5>
+
+<!-- First Chart/Table -->
+<div class="col-12" id="tablechart">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player 1</th>
+                <th>Player 2</th>
+                <th>Player 1 MR</th>
+                <th>Player 2 MR</th>
+                <th>Player 1 Character</th>
+                <th>Player 2 Character</th>
+                <th>Winner</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for match in matches[:25] %}
+            <tr>
+                <td>{{ match.player1_username }}</td>
+                <td>{{ match.player2_username }}</td>
+                <td>{{ match.player1_mr }}</td>
+                <td>{{ match.player2_mr }}</td>
+                <td>{{ match.player1_character }}</td>
+                <td>{{ match.player2_character }}</td>
+                <td>{{ match.winner }}</td>
+                <td>{{ match.id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
