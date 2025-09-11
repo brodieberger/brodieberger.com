@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetal Health Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .button-card {
+            width: 175px;
+            height: 175px;
+            border-radius: 25%;
+            border: none;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: relative;
+            overflow: hidden;
+            text-shadow:
+                -1px -1px 0 black,
+                1px -1px 0 black,
+                -1px 1px 0 black,
+                1px 1px 0 black; /* Black outline */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            margin-top: -15px;
+        }
+
+        .button-card span {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .button-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .button-card:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 38, 255, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4 display-5 fw-bold">Fetal Health Prediction Model</h1>
+
+        <div class="card rounded-4 p-4 mb-5">
+            <p class="fs-6">
+                Welcome to my Fetal Health Prediction Tool. My name is Brodie Berger,
+                a Computer Science student and current intern in Virtua Health’s Data Science department.
+            </p>
+            <p class="fs-6">
+                This application is designed to analyze cardiotocography data and predict the health and status of a fetus during pregnancy.
+                Using a trained machine learning model, the tool classifies health conditions into three categories:
+                Normal, Suspect, or Pathological.
+            </p>
+            <p class="fs-6">
+                To get started, fill out the form fields or click <strong>"Run Cardiotocograph"</strong> to simulate running a real cardiotocograph machine (auto-fill
+                the form with sample data). Then click <strong>"Predict Fetal Health"</strong> to receive a
+                prediction and confidence score.
+            </p>
+            <p class="fs-6">
+                You can also click <strong>"Open Notebook"</strong> to view the complete Jupyter Notebook that powers this tool,
+                including data preprocessing, model training, and explainability visualizations.
+            </p>
+        </div>
+        <form method="POST" class="mb-4">
+            <div class="row g-3">
+                <div class="text-center d-flex justify-content-center flex-wrap">
+                    <button type="submit" class="button-card"
+                        style="background-image: url('/static/health.png');">
+                        <span>Predict Fetal Health</span>
+                    </button>
+
+                    <button type="button" class="button-card" onclick="autofillRandom()"
+                        style="background-image: url('/static/graph.png');">
+                        <span>Run Cardiotocograph</span>
+                    </button>
+
+                    <a href="notebook" class="button-card text-decoration-none d-block"
+                        style="background-image: url('/static/notebook.png');">
+                        <span>Open Notebook</span>
+                    </a>
+                </div>
+
+                <!-- Vital Sign Features -->
+                <div class="col-md-4">
+                    <label class="form-label">Baseline Value</label>
+                    <input type="number" name="baseline_value" class="form-control" required
+                        value="{{ request.form.get('baseline_value', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Accelerations</label>
+                    <input type="number" name="accelerations" step="any" class="form-control" required
+                        value="{{ request.form.get('accelerations', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Fetal Movement</label>
+                    <input type="number" name="fetal_movement" step="any" class="form-control" required
+                        value="{{ request.form.get('fetal_movement', '') }}">
+                </div>
+
+                <!-- Contractions and Decelerations -->
+                <div class="col-md-4">
+                    <label class="form-label">Uterine Contractions</label>
+                    <input type="number" name="uterine_contractions" step="any" class="form-control" required
+                        value="{{ request.form.get('uterine_contractions', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Light Decelerations</label>
+                    <input type="number" name="light_decelerations" step="any" class="form-control" required
+                        value="{{ request.form.get('light_decelerations', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Severe Decelerations</label>
+                    <input type="number" name="severe_decelerations" step="any" class="form-control" required
+                        value="{{ request.form.get('severe_decelerations', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Prolongued Decelerations</label>
+                    <input type="number" name="prolongued_decelerations" step="any" class="form-control" required
+                        value="{{ request.form.get('prolongued_decelerations', '') }}">
+                </div>
+
+                <!-- Variability -->
+                <div class="col-md-4">
+                    <label class="form-label">Abnormal Short Term Variability</label>
+                    <input type="number" name="abnormal_short_term_variability" step="any" class="form-control" required
+                        value="{{ request.form.get('abnormal_short_term_variability', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Mean STV</label>
+                    <input type="number" name="mean_value_of_short_term_variability" step="any" class="form-control"
+                        required value="{{ request.form.get('mean_value_of_short_term_variability', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Abnormal LTV (%)</label>
+                    <input type="number" name="percentage_of_time_with_abnormal_long_term_variability" step="any"
+                        class="form-control" required
+                        value="{{ request.form.get('percentage_of_time_with_abnormal_long_term_variability', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Mean LTV</label>
+                    <input type="number" name="mean_value_of_long_term_variability" step="any" class="form-control"
+                        required value="{{ request.form.get('mean_value_of_long_term_variability', '') }}">
+                </div>
+
+                <!-- Histogram Features -->
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Width</label>
+                    <input type="number" name="histogram_width" class="form-control" required
+                        value="{{ request.form.get('histogram_width', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Min</label>
+                    <input type="number" name="histogram_min" class="form-control" required
+                        value="{{ request.form.get('histogram_min', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Max</label>
+                    <input type="number" name="histogram_max" class="form-control" required
+                        value="{{ request.form.get('histogram_max', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Peaks</label>
+                    <input type="number" name="histogram_number_of_peaks" class="form-control" required
+                        value="{{ request.form.get('histogram_number_of_peaks', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Zeroes</label>
+                    <input type="number" name="histogram_number_of_zeroes" class="form-control" required
+                        value="{{ request.form.get('histogram_number_of_zeroes', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Mode</label>
+                    <input type="number" name="histogram_mode" class="form-control" required
+                        value="{{ request.form.get('histogram_mode', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Mean</label>
+                    <input type="number" name="histogram_mean" class="form-control" required
+                        value="{{ request.form.get('histogram_mean', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Median</label>
+                    <input type="number" name="histogram_median" class="form-control" required
+                        value="{{ request.form.get('histogram_median', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Variance</label>
+                    <input type="number" name="histogram_variance" class="form-control" required
+                        value="{{ request.form.get('histogram_variance', '') }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Histogram Tendency</label>
+                    <input type="number" name="histogram_tendency" class="form-control" required
+                        value="{{ request.form.get('histogram_tendency', '') }}">
+                </div>
+
+            </div>
+        </form>
+
+        {% if prediction is not none %}
+            <div id="prediction-results" class="mb-4">
+                <hr>
+                <h2 class="text-center mb-4">Prediction Results:</h2>
+
+                <!-- Predicted health box -->
+                <div class="mb-3">
+                    <h4><strong>Predicted Health:</strong></h4>
+                    {% if prediction == 0 %}
+                        <h5 class="text-success">Normal ({{ confidence }}% confidence)</h5>
+                        <p>This indicates a healthy fetus with no immediate concerns.</p>
+                    {% elif prediction == 1 %}
+                        <h5 class="text-warning">Suspect ({{ confidence }}% confidence)</h5>
+                        <p>This indicates a potential issue that may require further monitoring.</p>
+                    {% elif prediction == 2 %}
+                        <h5 class="text-danger">Pathological ({{ confidence }}% confidence)</h5>
+                        <p>This indicates a significant concern that requires immediate attention.</p>
+                    {% else %}
+                        <h5>No prediction made yet.</h5>
+                    {% endif %}
+                </div>
+                <!-- Important features box -->
+                <div class="mb-3">
+                    <h4><strong>Important Features:</strong></h4>
+                    <p>These features were found to be the most influential in the model's prediction. The SHAP score represents the impact of each feature. A positive score indicates a feature that contributes to the prediction, while a negative score indicates a feature that detracts from it.</p>
+                    <ul class="list-group list-group-flush">
+                        {% for feat in important_features %}
+                            <li class="list-group-item">
+                                <strong>{{ feat.name }}</strong>: SHAP = {{ feat.shap }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Feature values box -->
+                <div class="mb-3">
+                    <h4><strong>Feature Predictions:</strong></h4>
+                    {% if prediction != 0 %}
+                    <p>These are the actual values used for the prediction, compared to the average values for healthy pregnancies.</p>
+                    <ul class="list-group list-group-flush">
+                    {% for feat in important_features %}
+                        {% set avg = healthy_averages[feat.name] %}
+                        {% set diff = feat.value - avg %}
+                        <li class="list-group-item">
+                        <strong>{{ feat.name }}</strong>:
+                        <br>
+                        Current Value: {{ feat.value }} <br>
+                        Healthy Average: {{ avg }} <br>
+                        Estimation of Issue:
+                        {% if diff > 0 %}
+                            {{feature_descriptions[feat.name][0]}}
+                        {% elif diff < 0 %}
+                            {{feature_descriptions[feat.name][1]}}
+                        {% else %}
+                            equal to
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    {% else %}
+                        <p>No feature values to display for a normal prediction. If you would like to see a potential diagnosis,
+                            try running the cardiotocograph until you receive a suspect or pathological prediction.</p>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endif %}
+
+
+    </div>
+
+    <script>
+        async function autofillRandom() {
+            try {
+                const res = await fetch('/static/data.json');
+                const samples = await res.json();
+                const sample = samples[Math.floor(Math.random() * samples.length)];
+
+                Object.keys(sample).forEach(key => {
+                    const input = document.querySelector(`[name="${key}"]`);
+                    if (input) {
+                        input.value = sample[key];
+                    }
+                });
+            } catch (error) {
+                alert("Failed to load sample data.");
+                console.error(error);
+            }
+        }
+
+        // Scroll to prediction results if present
+        window.addEventListener('DOMContentLoaded', function () {
+            const results = document.getElementById('prediction-results');
+            if (results) {
+                results.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
