@@ -4,186 +4,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brodie Berger Portfolio</title>
+    <title>Brodie Berger | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
     <style>
+        :root {
+            --primary: #0d6efd;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --accent: #6c63ff;
+        }
+
+        /* ====== Global ====== */
         body {
-            margin-top: 8%;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
         }
 
-        .info-section {
-            margin-top: 8%;
+        h2.section-title {
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            color: var(--light);
+            font-size: 2.2rem;
         }
 
+        h2.section-title::after {
+            content: "";
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            left: 25%;
+            bottom: -8px;
+            border-radius: 2px;
+        }
+
+        /* ====== Hero Section ====== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        .hero img {
+            max-width: 250px;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ====== Info Section ====== */
         .info-box {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .project-section {
-            margin-top: 40px;
+        /* ====== Projects Section ====== */
+        #projects {
+            background: linear-gradient(to bottom, #0a0a0a, var(--dark));
+            border-radius: 12px;
+            padding: 60px 20px;
         }
 
         .project-card {
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #000;
+            border: 1px solid #1f1f1f;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
         }
 
         .project-card img {
-            max-height: 200px;
+            height: 200px;
             object-fit: cover;
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+            border-bottom: 1px solid #1f1f1f;
+            background-color:#f8f9fa;
         }
 
-        .animate__animated {
-            animation-duration: 1s;
+        .project-card .card-title {
+            color: #000;
+            font-weight: 600;
         }
 
+        .btn-secondary {
+            background-color: #333;
+            color: var(--light);
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #444;
+        }
+
+        /* ====== Footer ====== */
+        footer {
+            background: #1c1c1c;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
+
+
 </head>
 
 <body>
-    <div id="home" class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 animate__animated animate__fadeInLeft">
-                <div class="info-box text-center text-md-start">
-                    <h1 class="display-5">Brodie Berger</h1>
-                    <p>Software Engineer/Data Scientist. Check out my work!</p>
-                    <p><strong>Email:</strong> brodieberger@gmail.com</p>
-                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/brodieberger">linkedin.com/in/brodieberger</a>
-                    </p>
-                    <p><strong>GitHub:</strong> <a href="https://github.com/brodieberger">github.com/brodieberger</a></p>
-                </div>
-            </div>
-            <div class="col-md-6 animate__animated animate__fadeInRight d-flex justify-content-center">
-                <img src="/static/testimage.jpg" alt="Brodie Berger" class="img-fluid rounded-circle"
-                    style="max-width: 350px; border: 5px solid #f8f9fa; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-            </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <img src="/static/testimage.jpg" alt="Brodie Berger">
+            <h1 class="animate__animated animate__fadeInDown">Brodie Berger</h1>
+            <p class="animate__animated animate__fadeInUp">Software Engineer & Data Scientist</p>
+            <p>
+                <a href="mailto:brodieberger@gmail.com" class="btn btn-outline-light btn-lg m-2">Email Me</a>
+                <a href="https://linkedin.com/in/brodieberger" class="btn btn-outline-light btn-lg m-2">LinkedIn</a>
+                <a href="https://github.com/brodieberger" class="btn btn-outline-light btn-lg m-2">GitHub</a>
+                <a href="/static/BrodieBergerResume.pdf" class="btn btn-outline-light btn-lg m-2">Resume</a>
+            </p>
         </div>
-    </div>
+    </section>
 
-    <!-- Bio Section -->
-    <div class="container info-section">
+    <!-- About Section -->
+    <div class="container py-5">
         <div class="info-box animate__animated animate__fadeInUp">
-            <h2 class="text-center">About Me</h2>
-            <p>Hello! My name is Brodie Berger. I am a current graduate student studying Computer Science in the southern
-                NJ/Greater Philadelphia area. If you are interested in my work and skills, feel free to skip to the
-                projects section or view my resume.</p>
-            <p>For a little information about me, I first began programming when I was in middle school and quickly fell
-                in love with it. At this point I lacked the knowledge and education to put anything substantial
-                together, mainly sticking to small scripts or modifications to existing programs. It wasn't until high
-                school that I was able to think critically enough to plan, design, and work through a project to the
-                very end.</p>
-            <p>At Kean University, studying Computer Science was the obvious choice. I chose to focus my undergraduate
-                and graduate studies on software engineering, as building and optimizing software was something that
-                interested me early on.</p>
-            <p>Outside of academics, I love putting together projects around my interests, with my biggest one being
-                gaming. I usually choose to build things that I would love to use myself, and expectedly, these end up
-                being the things I am most excited to show off. Taking a step back from your work and seeing the
-                project take shape into something you're proud of is one of the most gratifying things about this
-                field.</p>
+            <h2 class="text-center section-title">About Me</h2>
+            <p>Hello! My name is Brodie Berger. I am a graduate student in Computer Science in the Southern NJ/Greater Philadelphia area. I specialize in software engineering and data science projects.</p>
+            <p>I started coding in middle school, making small scripts and game mods. By high school, I was creating full projects. Since then, I've built web apps, machine learning models, and made open-source contributions that put my skills into something worthwhile.</p>
+            <p>Outside of academics, I love building projects around my interests. My favorite part of development is seeing an idea come to life as a product I'm proud to show off to others.</p>
         </div>
     </div>
 
     <!-- Projects -->
-    <div id="projects" class="container project-section">
-        <h2 class="text-center mb-4 animate__animated animate__fadeInUp">Projects</h2>
-
+    <div id="projects" class="container py-5">
+        <h2 class="text-center section-title">Projects</h2>
         <div class="row">
-            <!-- Project 1 Street Fighter -->
-            <div class="col-md-6 project-card animate__animated animate__zoomIn">
-                <div class="card">
-                    <img src="/static/sf6.jpg" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
+
+            <!-- Project 1: Street Fighter -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    <img src="/static/sf6.jpg" class="card-img-top project-img" alt="SF6 Scraper">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">SF6 Scraper - Fullstack Site</h5>
-                        <p class="card-text">Full-stack interactive data visualization site for the video game 'Street
-                            Fighter 6'. Utilizes a webscraper to gather the relevant data from Capcom's web servers.</p>
-                        <a href="/streetfighter/" class="btn btn-primary">View Project</a>
-                        <a href="https://github.com/brodieberger/SF6Scraper" class="btn btn-secondary">View Github</a>
+                        <p class="card-text">Full-stack interactive data visualization site for the video game 'Street Fighter 6'. Utilizes a webscraper to gather the relevant data from Capcom's web servers.</p>
+                        <div class="mt-auto">
+                            <a href="/streetfighter/" class="btn btn-dark btn-sm">View Project</a>
+                            <a href="https://github.com/brodieberger/SF6Scraper"
+                                class="btn btn-secondary btn-sm">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2 Health -->
-            <div class="col-md-6 project-card animate__animated animate__zoomIn">
-                <div class="card">
-                    <img src="/static/fetal_health.png" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
+            <!-- Project 2: Fetal Health -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    <img src="/static/fetal_health.png" class="card-img-top project-img" alt="Fetal Health Prediction">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Fetal Prediction Model - Machine Learning Web App</h5>
-                        <p class="card-text">A web application that predicts fetal health outcomes using machine learning
-                            algorithms. Created as a project during an internship at Virtua Health.</p>
-                        <a href="/fetal_health/" class="btn btn-primary">View Project</a>
-                        <a href="https://github.com/brodieberger/machine-learning-study" class="btn btn-secondary">View
-                            Github</a>
+                        <p class="card-text">Machine learning web application that predicts fetal health outcomes using various algorithms. Created as a project during an internship in Virtua Health's Data Science department.</p>
+                        <div class="mt-auto">
+                            <a href="/fetal_health/" class="btn btn-dark btn-sm">View Project</a>
+                            <a href="https://github.com/brodieberger/machine-learning-study"
+                                class="btn btn-secondary btn-sm">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3 Archipelago-->
-            <div class="col-md-6 project-card animate__animated animate__zoomIn">
-                <div class="card">
-                    <img src="/static/archipelago.png" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
+            <!-- Project 3: Archipelago -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    <img src="/static/archipelago.png" class="card-img-top project-img" alt="Archipelago Integration">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Archipelago World Integration - Open Source Contribution</h5>
-                        <p class="card-text">Contribution to a large open source project. Integrated a new emulated system
-                            into the Archipelago multi-game randomizer by reverse-engineering emulator RAM, developing
-                            memory watchers to track user progress, and modifying ROM logic via ARM Assembly edits.</p>
-                        <a href="https://github.com/brodieberger/MMZero3Archipelago/releases/" class="btn btn-primary">View
-                            Project</a>
-                        <a href="https://github.com/brodieberger/MMZero3Archipelago" class="btn btn-secondary">View
-                            Github</a>
+                        <p class="card-text">Contribution to a large open source project. Integrated a new emulated game into the Archipelago multi-game randomizer, developed RAM watchers to track user progress, and modified ROM files using ARM Assembly to change game logic and visuals.</p>
+                        <div class="mt-auto">
+                            <a href="https://github.com/brodieberger/MMZero3Archipelago/releases/"
+                                class="btn btn-dark btn-sm">View Project</a>
+                            <a href="https://github.com/brodieberger/MMZero3Archipelago"
+                                class="btn btn-secondary btn-sm">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 4 Kean Location App -->
-            <div class="col-md-6 project-card animate__animated animate__zoomIn">
-                <div class="card">
-                    <img src="/static/hackathon.png" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Kean Location App - Mobile Application/Site</h5>
-                        <p class="card-text">Mobile site for finding popular nearby locations and events, with dynamic
-                            information on location popularity and peak operating hours. Utilizes Google Maps API and
-                            EventBrite API. <br>Made in 6 hours for the KeanUHackThis Hackathon.</p>
-                        <a href="/static/ProjectDemo.mp4" class="btn btn-primary">View Project</a>
-                        <a href="https://github.com/brodieberger/KeanPartyApp" class="btn btn-secondary">View Github</a>
+            <!-- Project 4: Kean Location App -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    <img src="/static/hackathon.png" class="card-img-top project-img" alt="Kean Location App">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Kean Location App - Mobile Webapp</h5>
+                        <p class="card-text">Mobile app for finding popular nearby locations and events, with dynamic information on location popularity and peak operating hours. Utilizes Google Maps API and EventBrite API.<br>Made in 6 hours for the KeanUHackThis Hackathon.</p>
+                        <div class="mt-auto">
+                            <a href="/static/ProjectDemo.mp4" class="btn btn-dark btn-sm">View Project</a>
+                            <a href="https://github.com/brodieberger/KeanPartyApp"
+                                class="btn btn-secondary btn-sm">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 5 Hangman -->
-            <div class="col-md-6 project-card animate__animated animate__zoomIn">
-                <div class="card">
-                    <img src="/static/hangman.png" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
+            <!-- Project 5: Hangman Infinity -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    <img src="/static/hangman.png" class="card-img-top project-img" alt="Hangman Infinity">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Hangman Infinity - Unity/C# Video Game</h5>
-                        <p class="card-text">Open source and free to play Hangman style video game made in the Unity
-                            Engine. Contains working online leaderboard.</p>
-                        <a href="https://github.com/brodieberger/Hangman-Infinity" class="btn btn-primary">View Project</a>
-                        <a href="https://github.com/brodieberger/Hangman-Infinity" class="btn btn-secondary">View
-                            Github</a>
+                        <p class="card-text">Open source Hangman style video game made in the Unity Engine. Contains working online leaderboard.</p>
+                        <div class="mt-auto">
+                            <a href="https://github.com/brodieberger/Hangman-Infinity"
+                                class="btn btn-dark btn-sm">View Project</a>
+                            <a href="https://github.com/brodieberger/Hangman-Infinity"
+                                class="btn btn-secondary btn-sm">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 6 Hawk Island -->
-            <div class="col-md-6 project-card animate__animated animate__zoomIn">
-                <div class="card">
-                    <img src="/static/hawkisland.png" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Hawk Island - Website for a Local Business</h5>
-                        <p class="card-text">A simple website designed and deployed for a local business, Hawk Island
-                            Marina. Features information about the business, its services, and a contact form.</p>
-                        <a href="https://www.hawkislandmarina.net" class="btn btn-primary">View Project</a>
-                        <button class="btn btn-secondary" disabled>View Github</button>
+            <!-- Project 6: Hawk Island -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card project-card h-100">
+                    <img src="/static/hawkisland.png" class="card-img-top project-img" alt="Hawk Island Marina">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Hawk Island Marina - Website for a Local Business</h5>
+                        <p class="card-text">A professional website designed and deployed for a local business, Hawk Island Marina. Features information about the business, its services, and a contact form.</p>
+                        <div class="mt-auto">
+                            <a href="https://www.hawkislandmarina.net" class="btn btn-dark btn-sm">View Project</a>
+                            <button class="btn btn-secondary btn-sm" disabled>GitHub (Private)</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+
+    <style>
+        /* Fix project image sizes */
+        .project-img {
+            height: 200px;
+            /* consistent height */
+            object-fit: cover;
+        }
+    </style>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Brodie Berger | <a href="#home">Back to top</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
