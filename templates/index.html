@@ -16,7 +16,7 @@
             --accent: #6c63ff;
         }
 
-        /* ====== Global ====== */
+        /* Body */
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
             background: var(--dark);
@@ -44,7 +44,7 @@
             border-radius: 2px;
         }
 
-        /* ====== Hero Section ====== */
+        /* Hero */
         .hero {
             height: 100vh;
             display: flex;
@@ -79,7 +79,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* ====== Info Section ====== */
+        /* Info Section */
         .info-box {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
@@ -87,7 +87,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* ====== Projects Section ====== */
+        /* Projects Section */
         #projects {
             background: linear-gradient(to bottom, #0a0a0a, var(--dark));
             border-radius: 12px;
@@ -119,6 +119,20 @@
             font-weight: 600;
         }
 
+        .project-img {
+            height: 200px;
+            /* consistent height */
+            object-fit: cover;
+        }
+
+        button {
+            font-size: 1rem;
+            margin-top: -15px;
+            background-color: #24292e;
+            color: white;
+            border-color: #000;
+        }
+
         .btn-secondary {
             background-color: #333;
             color: var(--light);
@@ -129,7 +143,7 @@
             background-color: #444;
         }
 
-        /* ====== Footer ====== */
+        /* Footer */
         footer {
             background: #1c1c1c;
             padding: 1.5rem;
@@ -147,13 +161,6 @@
             text-decoration: underline;
         }
 
-        button {
-            font-size: 1rem;
-            margin-top: -15px;
-            background-color: #24292e;
-            color: white;
-            border-color: #000;
-        }
     </style>
 
 
@@ -181,20 +188,18 @@
             <h2 class="text-center section-title">About Me</h2>
             <p>Hello! My name is Brodie Berger. I am a graduate student in Computer Science in the Southern NJ/Greater
                 Philadelphia area. I specialize in software engineering and data science projects.</p>
-            <p>I started coding in middle school, making small scripts and game mods. By high school, I was creating
-                full projects. Since then, I've built web apps, machine learning models, and made open-source
+            <p>I started coding in middle school, making small scripts and game mods. Since then, I've built web apps, machine learning models, and made open-source
                 contributions that put my skills into something worthwhile.</p>
             <p>Outside of academics, I love building projects around my interests. My favorite part of development is
                 seeing an idea come to life as a product I'm proud to show off to others.</p>
             <p>My most recent work experience was a 2025 summer internship at Virtua Health's Data Science department.
-                At this internship I learned how a healthcare organization applies software engineering and data science
-                principals in practice. This experience gave me knowledge into the full lifecycle of a software project.
-                From the initial idea, through discussions with
-                stakeholders, to the planning, development and deployment on the production Azure server.</p>
+                At this internship, During this time, I saw firsthand how a healthcare organization uses software engineering
+                and data science in real projects. At Virtua, I got to experience the full lifecycle of a software project. From the first idea
+                and conversations with stakeholders, to the planning, development, and deployment on a production Azure server.</p>
         </div>
     </div>
 
-    <!-- Projects -->
+    <!-- Projects Section -->
     <div id="projects" class="container py-4">
         <h2 class="text-center section-title">Projects</h2>
         <div class="row">
@@ -208,7 +213,7 @@
                         <p class="card-text">Full-stack interactive data visualization site for the video game 'Street
                             Fighter 6'. Utilizes a webscraper to gather the relevant data from Capcom's web servers.</p>
                         <div>
-                            <a href="streetfighter.html"><button>Open Project <i
+                            <a href="streetfighter"><button>Open Project <i
                                         class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/SF6Scraper"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
@@ -227,7 +232,7 @@
                             various algorithms. Created as a project during an internship in Virtua Health's Data
                             Science department.</p>
                         <div>
-                            <a href="fetal_health.html"><button>Open Project <i
+                            <a href="fetal_health"><button>Open Project <i
                                         class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/machine-learning-study"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
@@ -246,7 +251,7 @@
                             into the Archipelago multi-game randomizer, developed RAM watchers to track user progress,
                             and modified ROM files using ARM Assembly to change game logic and visuals.</p>
                         <div>
-                            <a href="https://github.com/brodieberger/MMZero3Archipelago/Releases"><button>Open Project
+                            <a href="https://github.com/brodieberger/MMZero3Archipelago/releases"><button>Open Project
                                     <i class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/MMZero3Archipelago"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
@@ -315,20 +320,9 @@
         </div>
     </div>
 
-
-    <style>
-        /* Fix project image sizes */
-        .project-img {
-            height: 200px;
-            /* consistent height */
-            object-fit: cover;
-        }
-    </style>
-
-
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Brodie Berger | <a href="#home">Back to top</a></p>
+        <p><a href="#home">Back to top</a></p>
     </footer>
     <script src="https://kit.fontawesome.com/2dc4c6bc93.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
