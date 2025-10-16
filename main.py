@@ -44,7 +44,7 @@ def streetfighter():
             scrapesite(player_id)
             return redirect(url_for("results", player_id=player_id))
 
-    return render_template("streetfighter.html")
+    return render_template("/streetfighter/streetfighter.html")
 
 #Loads template for user display
 @app.route("/streetfighter/stats/<player_id>")
@@ -95,7 +95,7 @@ def characters(player_id):
         flash("No matches found for the player.")
         return redirect(url_for("streetfighter"))
 
-    return render_template('characters.html', player_id=player_id, username=username, matchcount=matchcount)
+    return render_template('streetfighter/characters.html', player_id=player_id, username=username, matchcount=matchcount)
 
 # Information about the characters you've fought
 @app.route("/streetfighter/matches/<player_id>")
@@ -121,7 +121,7 @@ def matches(player_id):
         flash("No matches found for the player.")
         return redirect(url_for("streetfighter"))
 
-    return render_template('matches.html', player_id=player_id, matches=matches, username=username, matchcount=matchcount)
+    return render_template('streetfighter/matches.html', player_id=player_id, matches=matches, username=username, matchcount=matchcount)
 
 # Information about the opponents you've fought
 @app.route("/streetfighter/opponents/<player_id>")
@@ -147,7 +147,7 @@ def opponents(player_id):
         flash("No matches found for the player.")
         return redirect(url_for("streetfighter"))
 
-    return render_template('opponents.html', player_id=player_id, matches=matches, username=username, matchcount=matchcount)
+    return render_template('streetfighter/opponents.html', player_id=player_id, matches=matches, username=username, matchcount=matchcount)
 
 
 # Format JSON stuff for AJAX
@@ -336,17 +336,17 @@ def fetal_health():
                 "value": round(float(data[0][i]), 4)
             } for i in top_indices]
 
-            return render_template('fetal_health.html', prediction=prediction, confidence=confidence, important_features=important_features, healthy_averages=healthy_averages, feature_descriptions=feature_descriptions)
+            return render_template('fetal/fetal_health.html', prediction=prediction, confidence=confidence, important_features=important_features, healthy_averages=healthy_averages, feature_descriptions=feature_descriptions)
 
         except Exception as e:
             print("Exception during prediction:", e)
-            return render_template('fetal_health.html', prediction="Error", confidence="Error")
+            return render_template('fetal/fetal_health.html', prediction="Error", confidence="Error")
 
-    return render_template('fetal_health.html', prediction=None, confidence=None)
+    return render_template('fetal/fetal_health.html', prediction=None, confidence=None)
 
 @app.route('/fetal_health/notebook')
 def fetal_health_notebook():
-    return render_template('fetal_health_notebook.html')
+    return render_template('fetal/fetal_health_notebook.html')
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)

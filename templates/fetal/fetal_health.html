@@ -86,17 +86,17 @@
             <div class="row g-3">
                 <div class="text-center d-flex justify-content-center flex-wrap">
                     <button type="submit" class="button-card"
-                        style="background-image: url('/static/health.png');">
+                        style="background-image: url('/static/fetal/health.png');">
                         <span>Predict Fetal Health</span>
                     </button>
 
                     <button type="button" class="button-card" onclick="autofillRandom()"
-                        style="background-image: url('/static/graph.png');">
+                        style="background-image: url('/static/fetal/graph.png');">
                         <span>Run Cardiotocograph</span>
                     </button>
 
                     <a href="notebook" class="button-card text-decoration-none d-block"
-                        style="background-image: url('/static/notebook.png');">
+                        style="background-image: url('/static/fetal/notebook.png');">
                         <span>Open Notebook</span>
                     </a>
                 </div>
@@ -292,7 +292,7 @@
     <script>
         async function autofillRandom() {
             try {
-                const res = await fetch('/static/data.json');
+                const res = await fetch('/static/fetal/data.json');
                 const samples = await res.json();
                 const sample = samples[Math.floor(Math.random() * samples.length)];
 
