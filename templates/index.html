@@ -7,215 +7,7 @@
     <title>Brodie Berger | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-    <style>
-        :root {
-            --primary: #0d6efd;
-            --dark: #121212;
-            --light: #f8f9fa;
-            --accent: #6c63ff;
-        }
-
-        /* Body */
-        body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background: var(--dark);
-            color: var(--light);
-            scroll-behavior: smooth;
-        }
-
-        h2.section-title {
-            margin-bottom: 2rem;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-            color: var(--light);
-            font-size: 2.2rem;
-        }
-
-        h2.section-title::after {
-            content: "";
-            width: 50%;
-            height: 3px;
-            background: var(--accent);
-            position: absolute;
-            left: 25%;
-            bottom: -8px;
-            border-radius: 2px;
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 3rem 1rem;
-        }
-
-        .hero img {
-            max-width: 250px;
-            border-radius: 50%;
-            border: 6px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-            margin-bottom: 1rem;
-            transition: transform 0.3s;
-        }
-
-        .hero img:hover {
-            transform: scale(1.05);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Info Section */
-        .info-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Projects Section */
-        #projects {
-            background: linear-gradient(to bottom, #0a0a0a, var(--dark));
-            border-radius: 12px;
-            padding: 60px 20px;
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #000;
-            border: 1px solid #1f1f1f;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
-        }
-
-        .project-card img {
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: .5rem;
-            border-top-right-radius: .5rem;
-            border-bottom: 1px solid #1f1f1f;
-            background-color: #f8f9fa;
-        }
-
-        /* Fix project image sizes */
-        .project-img {
-            height: 200px;
-            /* consistent height */
-            object-fit: cover;
-        }
-
-        .project-card .card-title {
-            color: #000;
-            font-weight: 600;
-        }
-
-        .project-img {
-            height: 200px;
-            /* consistent height */
-            object-fit: cover;
-        }
-
-        button {
-            font-size: 1rem;
-            margin-top: -15px;
-            background-color: #24292e;
-            color: white;
-            border-color: #000;
-        }
-
-        .btn-secondary {
-            background-color: #333;
-            color: var(--light);
-            border: none;
-        }
-
-        .btn-secondary:hover {
-            background-color: #444;
-        }
-
-        /* Footer */
-        footer {
-            background: #1c1c1c;
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        button {
-            font-size: 1rem;
-            margin-top: -15px;
-            background-color: #24292e;
-            color: white;
-            border-color: #000;
-        }
-
-
-        /* Modal (background overlay) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            transition: opacity 0.3s ease;
-        }
-
-        /* Modal content */
-        .modal-content {
-            background-color: #0a0a0a;
-            color: #fff;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 900px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Close button */
-        .close {
-            color: #bbb;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
 
 
 </head>
@@ -242,14 +34,18 @@
             <h2 class="text-center section-title">About Me</h2>
             <p>Hello! My name is Brodie Berger. I am a graduate student in Computer Science in the Southern NJ/Greater
                 Philadelphia area. I specialize in software engineering and data science projects.</p>
-            <p>I started coding in middle school, making small scripts and game mods. Since then, I've built web apps, machine learning models, and made open-source
+            <p>I started coding in middle school, making small scripts and game mods. Since then, I've built web apps,
+                machine learning models, and made open-source
                 contributions that put my skills into something worthwhile.</p>
             <p>Outside of academics, I love building projects around my interests. My favorite part of development is
                 seeing an idea come to life as a product I'm proud to show off to others.</p>
             <p>My most recent work experience was a 2025 summer internship at Virtua Health's Data Science department.
-                At this internship, During this time, I saw firsthand how a healthcare organization uses software engineering
-                and data science in real projects. At Virtua, I got to experience the full lifecycle of a software project. From the first idea
-                and conversations with stakeholders, to the planning, development, and deployment on a production Azure server.</p>
+                At this internship, During this time, I saw firsthand how a healthcare organization uses software
+                engineering
+                and data science in real projects. At Virtua, I got to experience the full lifecycle of a software
+                project. From the first idea
+                and conversations with stakeholders, to the planning, development, and deployment on a production Azure
+                server.</p>
         </div>
     </div>
 
@@ -271,8 +67,8 @@
                                         class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/SF6Scraper"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
-                            <button onclick="openModal('project1-modal')">Details <i
-                                        class="fa fa-github"></i></button>
+                            <button onclick="openModal('streetfighter-modal')">Details <i
+                                    class="fa fa-github"></i></button>
                         </div>
                     </div>
                 </div>
@@ -281,19 +77,19 @@
             <!-- Project 2: Fetal Health -->
             <div class="col-12 col-md-6 mb-4">
                 <div class="card project-card h-100">
-                    <img src="/static/banner/fetal_health.png" class="card-img-top project-img" alt="Fetal Health Prediction">
+                    <img src="/static/banner/fetal_health.png" class="card-img-top project-img"
+                        alt="Fetal Health Prediction">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Fetal Prediction Model - Machine Learning Web App</h5>
                         <p class="card-text">Machine learning web application that predicts fetal health outcomes using
                             various algorithms. Created as a project during an internship in Virtua Health's Data
                             Science department.</p>
                         <div>
-                            <a href="fetal_health"><button>Open Project <i
-                                        class="fa-solid fa-compass"></i></button></a>
+                            <a href="fetal_health"><button>Open Project <i class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/machine-learning-study"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
-                            <button onclick="openModal('project1-modal')">Details <i
-                                        class="fa fa-github"></i></button>
+                            <button onclick="window.location.href = '/fetal_health/notebook'">Details <i
+                                    class="fa fa-github"></i></button>
                         </div>
                     </div>
                 </div>
@@ -302,7 +98,7 @@
             <!-- Project 3: Archipelago -->
             <div class="col-12 col-md-6 mb-4">
                 <div class="card project-card h-100">
-                    <img src="/static/banner/archipelago.png" class="card-img-top project-img" alt="Archipelago Integration">
+                    <img src="/static/archipelago.png" class="card-img-top project-img" alt="Archipelago Integration">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Archipelago World Integration - Open Source Contribution</h5>
                         <p class="card-text">Contribution to a large open source project. Integrated a new emulated game
@@ -313,8 +109,8 @@
                                     <i class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/MMZero3Archipelago"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
-                            <button onclick="openModal('project1-modal')">Details <i
-                                        class="fa fa-github"></i></button>
+                            <button onclick="openModal('archipelago-modal')">Details <i
+                                    class="fa fa-github"></i></button>
                         </div>
                     </div>
                 </div>
@@ -334,8 +130,7 @@
                                         class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/KeanPartyApp"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
-                            <button onclick="openModal('project1-modal')">Details <i
-                                        class="fa fa-github"></i></button>
+                            <button onclick="openModal('project1-modal')">Details <i class="fa fa-github"></i></button>
                         </div>
                     </div>
                 </div>
@@ -354,8 +149,7 @@
                                         class="fa-solid fa-compass"></i></button></a>
                             <a href="https://github.com/brodieberger/Hangman-Infinity"><button>View Github <i
                                         class="fa fa-github"></i></button></a>
-                            <button onclick="openModal('project1-modal')">Details <i
-                                        class="fa fa-github"></i></button>
+                            <button onclick="openModal('project1-modal')">Details <i class="fa fa-github"></i></button>
                         </div>
                     </div>
                 </div>
@@ -376,8 +170,7 @@
                             <a href="https://github.com/brodieberger/SF6Scraper"><button disabled
                                     style="cursor: not-allowed;opacity: 0.7;">View Github <i
                                         class="fa fa-github"></i></button></a>
-                            <button onclick="openModal('project1-modal')">Details <i
-                                        class="fa fa-github"></i></button>
+                            <button onclick="openModal('project1-modal')">Details <i class="fa fa-github"></i></button>
                         </div>
                     </div>
                 </div>
@@ -387,67 +180,270 @@
     </div>
 
     <!-- Modal -->
-    <div id="project1-modal" class="modal">
+    <div id="archipelago-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('project1-modal')">&times;</span>
-            <h2>0. Archipelago Multi-World Project</h2>
+            <span class="close" onclick="closeModal('archipelago-modal')">&times;</span>
+            <h2>Archipelago Multi-World Project</h2>
+            <img src="/static/archipelago.png" alt="Screenshot">
             <p>
-                This is one of the projects I’m most proud of, it was also my first experience in working with a large codebase and contributing to an open source project! 
-<br><br>In this project, I worked on adding the Gameboy Advanced game ‘Mega Man Zero 3’ to a community-driven open source project called Archipelago. I started it because I wanted to challenge myself, improve my programming skills, and be part of a creative project that other people could enjoy.
-<br><br>This project pushed me to learn a lot of different areas at once. I wrote Python and Lua scripts that interact with emulators, I reverse engineered out how the game’s RAM/ROM works, and even edited the game’s assembly code so it could handle new logic. I spent time experimenting, testing, and building tools until I got everything working together.
-<br><br>What I like about this project is that it shows how far I’ve come as a developer. It combines higher-level programming with low-level memory work, network communication, and a good bit of problem solving. It’s technical, but it’s also something I did because I care about the game and the community that plays it.
+                This is one of the projects I'm most proud of, it was also my first experience in working with a large
+                codebase and contributing to an open source project!
+                <br><br>In this project, I worked on adding the Gameboy Advanced game ‘Mega Man Zero 3' to a
+                community-driven open source project called Archipelago. I started it because I wanted to challenge
+                myself, improve my programming skills, and be part of a creative project that other people could enjoy.
+                <br><br>This project pushed me to learn a lot of different areas at once. I wrote Python and Lua scripts
+                that interact with emulators, I reverse engineered out how the game's RAM/ROM works, and even edited the
+                game's assembly code so it could handle new logic. I spent time experimenting, testing, and building
+                tools until I got everything working together.
+                <br><br>What I like about this project is that it shows how far I've come as a developer. It combines
+                higher-level programming with low-level memory work, network communication, and a good bit of problem
+                solving. It's technical, but it's also something I did because I care about the game and the community
+                that plays it.
             </p>
-            <img src="somethingsomething.jpg" alt="Screenshot">
+
 
             <h2>1. What is Archipelago</h2>
             <p>
-Archipelago is a big community project that connects different games together. It’s known as a “multiworld randomizer,” which means that items in one player’s game can appear in someone else’s. If I pick up an upgrade in Mega Man Zero 3, that item might actually go to a friend who’s playing a completely different game, like The Legend of Zelda or Super Metroid.
-<br><br>Every game that connects to Archipelago is called a “world.” Each world defines the game’s items, locations, and progression rules. The server handles all the item distribution behind the scenes, with the client for each game handling the updates through the player’s memory or save data when new items are received.
-<br><br>What makes this so fun is how it turns a normally single-player activity of playing a randomizer into a multiplayer experience. Players can talk, strategize, and depend on each other to make progress.
-<br><br>My goal was to make Mega Man Zero 3 work as one of those worlds. That meant figuring out how the game stored its inventory, how to detect progress, and how to write data back into the game when items were sent over the network.            </p>
-            <img src="somethingsomething.jpg" alt="Screenshot">
+                Archipelago is a big community project that connects different games together. It's known as a
+                “multiworld randomizer,” which means that items in one player's game can appear in someone else's. If I
+                pick up an upgrade in Mega Man Zero 3, that item might actually go to a friend who's playing a
+                completely different game, like The Legend of Zelda or Super Metroid.
+                <br><br>Every game that connects to Archipelago is called a “world.” Each world defines the game's
+                items, locations, and progression rules. The server handles all the item distribution behind the scenes,
+                with the client for each game handling the updates through the player's memory or save data when new
+                items are received.
+                <br><br>What makes this so fun is how it turns a normally single-player activity of playing a randomizer
+                into a multiplayer experience. Players can talk, strategize, and depend on each other to make progress.
+                <br><br>My goal was to make Mega Man Zero 3 work as one of those worlds. That meant figuring out how the
+                game stored its inventory, how to detect progress, and how to write data back into the game when items
+                were sent over the network.
+            </p>
             </p>
 
             <h2>2. Prototyping</h2>
             <p>
-The first steps I took towards this project was understanding the game’s internals and creating a quick prototype.
-<br><br>The main aspect of the game that would be randomized are the game’s ‘Secret Disks’. These are collectables that appear throughout the game, either in secret locations or dropped from enemies. Opening them rewards the player with useful upgrades, in-game currency, or one time use power ups. Randomizing them and incorporating them into the Archipelago would be a great place to start.
-<br><br>To find out how to do this, we need to understand how the game stores these items. As the game is running, every piece of information regarding the game is stored in various RAM values. However, these RAM values are not possible to understand by just looking at them, we need to do some reverse engineering.
-<br><br>Many emulators have built in tools that let you view and manage RAM addresses, such as the RAM Search tool in the Bizhawk Emulator. This tool allows you to search for RAM values that meet certain criteria. 
-<br><br>For example: if we wanted to look for the health value of the player, a good idea would be to set an initial search and eliminate any RAM values that are currently changing. Any values changing at this point would be related to things such as global timers, animation values, positions for other entities, etc. Once these have been narrowed out, we can then do something to change our health value, such as taking damage from an enemy. We can now narrow down our search to filter out only RAM values that have decreased since the last time we checked. Once we have a smaller list of values to look at, we can begin poking these addresses individually with higher or lower values to see how the game reacts. Once we find an address that correlates with our health bar, we are done!
-<br><br>Using this process, we can find RAM addresses that store whatever we want. We can locate the player’s inventory by collecting an item and seeing what RAM values get updated. This led me to discovering a series of Bytes that store information regarding the player’s inventory. These bytes are stored as bitflags, which are easily reversible into the item that they represent.
-<br><br>For example, the RAM value for the first byte might say ‘AA’ or something similar. The first digit represents whether or not the item has been opened, while the second represents whether the item has been found or not. We can convert ‘A’ into binary, which gives us the following: ‘1010’. This specifically would mean that the player has found the second and fourth item in that slot (going from left to right).
-<br><br>From here, I can write a simple Lua script running on the emulator in order to track the items that the player has received. See the video below.
-<br><br><img src="somethingsomething.jpg" alt="Screenshot">
-<br><br>This proves that this project can work!
+                The first steps I took towards this project was understanding the game's internals and creating a quick
+                prototype.
+                <br><br>The main aspect of the game that would be randomized are the game's ‘Secret Disks'. These are
+                collectables that appear throughout the game, either in secret locations or dropped from enemies.
+                Opening them rewards the player with useful upgrades, in-game currency, or one time use power ups.
+                Randomizing them and incorporating them into the Archipelago would be a great place to start.
+                <br><br>To find out how to do this, we need to understand how the game stores these items. As the game
+                is running, every piece of information regarding the game is stored in various RAM values. However,
+                these RAM values are not possible to understand by just looking at them, we need to do some reverse
+                engineering.
+                <br><br>Many emulators have built in tools that let you view and manage RAM addresses, such as the RAM
+                Search tool in the Bizhawk Emulator. This tool allows you to search for RAM values that meet certain
+                criteria.
+                <br><br>For example: if we wanted to look for the health value of the player, a good idea would be to
+                set an initial search and eliminate any RAM values that are currently changing. Any values changing at
+                this point would be related to things such as global timers, animation values, positions for other
+                entities, etc. Once these have been narrowed out, we can then do something to change our health value,
+                such as taking damage from an enemy. We can now narrow down our search to filter out only RAM values
+                that have decreased since the last time we checked. Once we have a smaller list of values to look at, we
+                can begin poking these addresses individually with higher or lower values to see how the game reacts.
+                Once we find an address that correlates with our health bar, we are done!
+                <br><br>Using this process, we can find RAM addresses that store whatever we want. We can locate the
+                player's inventory by collecting an item and seeing what RAM values get updated. This led me to
+                discovering a series of Bytes that store information regarding the player's inventory. These bytes are
+                stored as bitflags, which are easily reversible into the item that they represent.
+                <br><br>For example, the RAM value for the first byte might say ‘AA' or something similar. The first
+                digit represents whether or not the item has been opened, while the second represents whether the item
+                has been found or not. We can convert ‘A' into binary, which gives us the following: ‘1010'. This
+                specifically would mean that the player has found the second and fourth item in that slot (going from
+                left to right).
+                <br><br>From here, I can write a simple Lua script running on the emulator in order to track the items
+                that the player has received.
+                <video width="852" height="330" controls style="margin: auto; display:block">
+                    <source src="/static/archipelago/concept.mp4" type="video/mp4">
+                </video>
+                <br>Note that the items collected in the video matches up with the items printed in the Lua script. This
+                proves that this project can work!
             </p>
 
             <h2>3. Understanding Archipelago Infrastructure</h2>
             <p>
-This was probably the most difficult part for me to understand. As mentioned before, I was brand new to working with large codebases prior to this project, so I was in for a lot of learning.
-<br><br>Luckily, Archipelago has a very talented and welcoming community, as well as concise and helpful documentation. Using other completed projects as a base, I was able to understand each component that I had to work on.
-<br><br>Each world is going to be laid out differently, as each game is going to have different implementation and requirements. For a game like mine, we need:
-<br><br>__init__.py: A starter file that creates the world object so that Archipelago recognizes it. Also handles creating the logic for the randomizer and anything else the Archipelago object needs from my world.
-<br><br>Client.py : The most important file, this is the logic that determines how the emulator and the Archipelago world interact. Most of my time spent developing was managing this file.
-<br><br>Items.py / locations.py / regions.py / regions.py : Files for documenting and organizing different items and collectables in game.
-<br><br>Options.py : Uses information provided by the user to make modifications to the client or ROM generation.
+                This was probably the most difficult part for me to understand. As mentioned before, I was brand new to
+                working with large codebases prior to this project, so I was in for a lot of learning.
+                <br><br>Luckily, Archipelago has a very talented and welcoming community, as well as concise and helpful
+                documentation. Using other completed projects as a base, I was able to understand each component that I
+                had to work on.
+                <br><br>Each world is going to be laid out differently, as each game is going to have different
+                implementation and requirements. For a game like mine, we need:
+                <br><br>__init__.py: A starter file that creates the world object so that Archipelago recognizes it.
+                Also handles creating the logic for the randomizer and anything else the Archipelago object needs from
+                my world.
+                <br><br>Client.py : The most important file, this is the logic that determines how the emulator and the
+                Archipelago world interact. Most of my time spent developing was managing this file.
+                <br><br>Items.py / locations.py / regions.py / regions.py : Files for documenting and organizing
+                different items and collectables in game.
+                <br><br>Options.py : Uses information provided by the user to make modifications to the client or ROM
+                generation.
             </p>
 
             <h2>4. Creating the Client</h2>
             <p>
-Once all of the items and locations were charted out, we can start developing the Client logic. The most important things would be tracking progress of the players inventory. According to the Bizhawk client documentation, the Bizhawk client connects to a Lua script that was developed by the Archipelago community. This script takes function calls to pull or insert RAM data into the emulated game. 
-<br><br>Using these functions, we can pull data on a loop, and compare them in real time to determine if progress has been made. The following example shows one section o the game_watcher loop. It reads the game’s save data, which is located at a specific RAM address that we have discovered previously.
-<br><br>{IMAGE}
-<br><br>We can check this save_data on each loop to see if a new item has been collected. If one is, we can run a function to determine which item was found and send that information as a packet to the Archipelago server. The Archipelago server processes this information and potentially sends a packet back to our client (remember that this is a multigame randomizer, an item is likely to be sent to another player instead).
-<br><br>If this packet is an item that belongs to our world, we would want to process and insert it into the player’s game.
-<br><br>{IMAGE}
-<br><br>This is about the general idea of how the Client works. There are many more issues and edge cases that needed to be addressed. One of the biggest issues was making sure that if you were given an item through Archipelago, that the given item would still be collectable in your world. 
-<br><br>For example, if another player gives you, say, secret disk #7. You are given the item, and since the game thinks you found it, the game will not show you secret disk #7 in game, meaning it is uncollectable, and the item associated with collecting it is gone.
-<br><br>This issue was corrected through the use of multiple inventories handled by the client. One inventory is used when you are in a level, which are the areas secret disks are collected. While another inventory is used while you are present in the Hub area, where secret disks are opened and the items are equipped.
-<br><br>In addition to this, we need to keep track of the levels the player has beaten, which non-secret disk items the player has collected, the level the player is on, etc. There is simply too much to cover regarding this, so check out the project's source code if you want to learn more!
+                Once all of the items and locations were charted out, we can start developing the Client logic. The most
+                important things would be tracking progress of the players inventory. According to the Bizhawk client
+                documentation, the Bizhawk client connects to a Lua script that was developed by the Archipelago
+                community. This script takes function calls to pull or insert RAM data into the emulated game.
+                <br><br>Using these functions, we can pull data on a loop, and compare them in real time to determine if
+                progress has been made. The following example shows one section o the game_watcher loop. It reads the
+                game's save data, which is located at a specific RAM address that we have discovered previously.
+                <br><br><img src="/static/archipelago/save_data.png" alt="Screenshot">
+                <br><br>We can check this save_data on each loop to see if a new item has been collected. If one is, we
+                can run a function to determine which item was found and send that information as a packet to the
+                Archipelago server. The Archipelago server processes this information and potentially sends a packet
+                back to our client (remember that this is a multigame randomizer, an item is likely to be sent to
+                another player instead).
+                <br><br>If this packet is an item that belongs to our world, we would want to process and insert it into
+                the player's game.
+                <br><br><img src="/static/archipelago/update_inventory.png" alt="Screenshot">
+                <br><br>This is about the general idea of how the Client works. There are many more issues and edge
+                cases that needed to be addressed. One of the biggest issues was making sure that if you were given an
+                item through Archipelago, that the given item would still be collectable in your world.
+                <br><br>For example, if another player gives you, say, secret disk #7. You are given the item, and since
+                the game thinks you found it, the game will not show you secret disk #7 in game, meaning it is
+                uncollectable, and the item associated with collecting it is gone.
+                <br><br>This issue was corrected through the use of multiple inventories handled by the client. One
+                inventory is used when you are in a level, which are the areas secret disks are collected. While another
+                inventory is used while you are present in the Hub area, where secret disks are opened and the items are
+                equipped.
+                <br><br>In addition to this, we need to keep track of the levels the player has beaten, which non-secret
+                disk items the player has collected, the level the player is on, etc. There is simply too much to cover
+                regarding this, so check out the project's source code if you want to learn more!
             </p>
             <h2>5. Patching the Game Using Assembly</h2>
-            <p>TODO</p>
+            <p>Having the game read and write memory is a good starting point, but it is still the bare minimum for a
+                world within the Archipelago framework. Understanding where to go from here requires a lot of
+                understanding on why players play randomizers.
+                One of the biggest aspects of a randomizer is that it should change up the gameplay as well as
+                progression order. With the current implementation no part of the progression is changed. The only items
+                in the secret disks are optional bonuses. Ideally, the order in which you play the game should be
+                completely changed with each playthrough.
+                <br><br>This level of modification is not going to be accomplished with just memory edits through
+                Archipelago.
+                From here we will need to edit the game's ROM, and that means using assembly. Let's work through the
+                process of finding an instruction we want to edit.
+                <br><br>Let's find the instruction that deals damage to the player. First we would want to find the RAM
+                address
+                for the player's health, we can do this using RAM watching methods we discussed previously.
+                Once we find this address, we can set a breakpoint on it. Breakpoints for these addresses can either be
+                on read, write, or execution. We want to know when it gets written to. So let's set this breakpoint and
+                take damage. The result can be seen in the screenshot below. (Note that the code annotations were added
+                by me).
+            </p>
+            <img src="/static/archipelago/reverse_engineer.png" alt="Screenshot">
+
+
+            <p><br>As you can see in the bottom left debugger window, the address 8007CBA is the instruction that stores
+                a
+                register value to our health address in RAM. We can trace upwards in the instructions to find where this
+                register value comes from. Here we can see that a value gets loaded, this is likely a damage value
+                table, or an individual damage value located in a struct for each enemy. Here that value gets loaded,
+                then subtracted to our current health. Afterwards, this new health value is stored in RAM, thus damaging
+                the player.
+                <br><br>Using this method, and with enough trial and error, we can trace any instruction that we want to
+                modify
+                and even add our own new instructions! We can edit any instruction to include a branch to an unused
+                portion of code. This game actually has a lot of unused code that we can use for whatever we want. Here
+                is an example of custom ASM that I have written.
+            </p>
+            <img src="/static/archipelago/asm.png" alt="Screenshot">
+
+            <p>
+                <br>This is one example of a custom function. One issue that would be prevalent later in the development
+                of
+                the project is that the game does not let you leave a level if it has not already been beaten. This can
+                be an issue when I later implement custom progression, as it would lead to players getting stuck. To
+                combat this, we can do a simple no-op on the instruction that checks if the player has beaten a level or
+                not.
+                <br><br>This works well enough, but it can cause issues on certain levels. Levels 1 and the first
+                intermission
+                level cause unexpected bugs when you try to force an exit on them. So, I implemented a custom check.
+                Here, when you try to exit a level it branches to the function. It then checks what level the player is
+                on. If they are on level 1 or 6, it displays a custom text in game that explains why you can't leave,
+                plays an error sound, and skips the logic for exiting the level. Otherwise, it lets you leave the level
+                as if you have already beaten it.
+                <br><br>Using this method of developing Rom edits, we can make modifications to anything about the Rom.
+                One big
+                change would be the routing changes that I have mentioned before. A few planned features include
+                limiting the available robot masters you could fight until you have the proper AP item, this feature is
+                implemented in the Mega Man 2 world, and would be a good change. Additionally, limiting Zero's default
+                abilities (wall climb, dash, charge attack, sword combo) like how Mario World does it can also work to
+                mix things up from game to game.
+            </p>
+        </div>
+    </div>
+
+    <div id="project1-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project1-modal')">&times;</span>
+            <h2>Work In Progress</h2>
+        </div>
+    </div>
+
+    <div id="streetfighter-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project1-modal')">&times;</span>
+            <h2>SF6 Scraper</h2>            
+            <p>This project is my attempt to bring player data from Street Fighter 6 to an easy to use web application.
+                It's a custom web application that scrapes, organizes, and displays online player statistics directly
+                from Capcom's official servers, showing match history, win rates, character usage, and most importantly,
+                information on the player's matchmaking rating (something missing from the official site!)
+                <br><br>I started this project because I wanted to learn more about full-stack development. More
+                specifically
+                combining web scraping, databases, and front-end design while also building something connected to a
+                game I enjoy. </p>
+            <h2>1. How the Site Works</h2>
+            <p>
+            When a user visits the site, they can enter their in-game Player ID into a form on the homepage. Once
+            submitted, the website launches an automated headless browser behind the scenes using Playwright, a Python
+            framework for browser automation.
+            <br>The scraper logs into Capcom's official CFN (Capcom Fighters Network) service using a private
+            account, then
+            navigates to the player's public profile and gathers data like:
+            <br>
+            <ul>
+                <li>Recent ranked matches</li>
+                <li>Character choices</li>
+                <li>Match results and ratings (MR/LP)</li>
+                <li>Opponent information</li>
+            </ul>
+            <br>
+            All of this data is parsed and inserted into a MySQL database hosted on the backend. Once the information is
+            stored, the user is automatically redirected to a stats page that displays charts, tables, and summaries
+            built from the newly collected data.
+            <br><br>If the player has been searched before, the scraper doesn't need to run again, as the data is
+            fetched
+            directly from the database for instant loading. In the future, there will be another system that
+            automatically searches for new games and adds those into the database.</p>
+            
+            <h2>2. Technical Details</h2>
+            <p>The project is hosted on PythonAnywhere, which runs the main Flask web application. Flask handles user
+            requests, routing, and integration with the MySQL database. The Playwright scraper runs as part of the same
+            system, launching a headless Chromium browser in a sandboxed environment.
+            <br><br>The database schema consists of two key tables:
+            <ul>
+                <li>users — stores each player's ID and username</li>
+                <li>matches — logs all match details, including both players, their characters, match ratings, and
+                    outcomes</li>
+            </ul>
+            From there, additional scripts and helper functions process the scraped data and update visual components
+            such as player dashboards and recent match feeds.</p>
+
+            <h2>3. Challenges and Learning</h2>
+            <p>One of the biggest challenges was working around Cloudflare's verification system and Capcom's login
+            requirements. The scraper needed to simulate human-like interaction. Logging in, waiting for page loads, and
+            navigating multiple redirect pages, all while remaining reliable on a remote host.
+            <br><br>Optimizing performance was another major focus. Because each new user request triggers a full
+            scrape, I had
+            to make sure that the scraper reused sessions efficiently and committed data to the database safely without
+            blocking other users.
+            <br><br>Just like I mentioned before, this site is still a work in progress. Most of the planned features
+            are listed
+            on the main landing page, with more detailed statistics being the current major focus.
+            </p>
         </div>
     </div>
 
